@@ -12,10 +12,10 @@ Note image ids also change after scm-source.json has being updated which trigger
     + Upgrade Selenium minor from 3.3.1 to 3.4.0
     + Upgrade GeckoDriver from 0.15.0 to 0.18.0 (latest)
  + **Image tag details:**
-    + Selenium version: 3.4.0 (5234b32)
+    + Selenium version: 3.4.0
     + Chrome stable:  61.0.3163.91
     + Firefox stable: 55.0.3
-    + Geckodriver: 0.15.0
+    + Geckodriver: 0.18.0
     + Chromedriver: 2.32.498513 (2c63aa53b2c658de596ed550eb5267ec5967b351)
     + Java: OpenJDK Java 1.8.0_131-8u131-b11-2ubuntu1.16.04.3-b11
     + Timezone: Europe/Berlin

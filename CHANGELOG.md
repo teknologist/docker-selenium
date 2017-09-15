@@ -7,6 +7,29 @@ Note image ids also change after scm-source.json has being updated which trigger
 ###### To get container versions
     docker exec grid versions
 
+## 3.4.0
+ + **Changes:** https://github.com/elgalu/docker-selenium/compare/3.3.1-p27...3.4.0 (2017-09-15)
+    + Upgrade Selenium minor from 3.3.1 to 3.4.0
+ + **Image tag details:**
+    + Selenium version: 3.4.0 (5234b32)
+    + Chrome stable:  61.0.3163.91
+    + Firefox stable: 55.0.3
+    + Geckodriver: 0.15.0
+    + Chromedriver: 2.32.498513 (2c63aa53b2c658de596ed550eb5267ec5967b351)
+    + Java: OpenJDK Java 1.8.0_131-8u131-b11-2ubuntu1.16.04.3-b11
+    + Timezone: Europe/Berlin
+    + FROM ubuntu:xenial-20170802
+    + Python: 3.5.2
+    + Tested on kernel dev host: 4.4.0-93-generic x86_64
+    + Tested on kernel CI  host: 4.4.0-93-generic x86_64
+    + Built at dev host with: Docker version 17.05.0-ce, build 89658be
+    + Built at CI  host with: Docker version 17.05.0, build 89658be
+    + Built at dev host with: Docker Compose version 1.14.0, build c7bdf9e
+    + Built at CI  host with: Docker Compose version 1.13.0, build 1719ceb
+    + Image size: 1.43GB
+    + Digest: sha256:0b53047b30d84738a76f9aa532fc0ff3a0125aa2b7671e83d2c5d34a9bc76db0
+    + Image ID: sha256:e635105c4491d355645877b05cf5cd3dfa4cb3698046be35f16b0d227f870388
+
 ## 3.3.1-p27
  + **Changes:** https://github.com/elgalu/docker-selenium/compare/3.3.1-p26...3.3.1-p27 (2017-09-15)
     + Upgrade Chrome patch to 61.0.3163.91

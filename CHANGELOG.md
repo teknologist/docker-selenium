@@ -10,6 +10,7 @@ Note image ids also change after scm-source.json has being updated which trigger
 ## 3.4.0
  + **Changes:** https://github.com/elgalu/docker-selenium/compare/3.3.1-p27...3.4.0 (2017-09-15)
     + Upgrade Selenium minor from 3.3.1 to 3.4.0
+    + Upgrade GeckoDriver from 0.15.0 to 0.18.0 (latest)
  + **Image tag details:**
     + Selenium version: 3.4.0 (5234b32)
     + Chrome stable:  61.0.3163.91

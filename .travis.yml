@@ -2,7 +2,7 @@
 # Travis requires us to pick a language else it will pick Ruby by default.
 # Let's choose a lightweight base image then we provide our own build tools.
 # Note: `language: generic` was failing in OSX so in that case you can use language: c
-language: generic
+language: python
 
 sudo: required
 
@@ -26,36 +26,60 @@ env:
     - DOCKER_PUSH=true
     - DOCKER_PUSH_LATEST=true
 
-jobs:
-  include:
-    - stage: Docker build (re-use in stages)
-      env: step=build_push
-      script:
-        - travis_retry ./test/before_install_build
+addons:
+  apt:
+    packages:
+    - qemu
+    - qemu-kvm
+    - libvirt0
+    - libvirt-bin
+    - gnutls-bin
+    - ubuntu-vm-builder
+    - bridge-utils
+    - cpu-checker
+    - virtinst
+    - virt-manager
+    - libgnutls-dev
+    - libxml++2.6-2
+    - libxml++2.6-dev
+    - libdevmapper-dev
+    - libpciaccess-dev
+    - python-dev
+    - libnl-dev
 
-    - stage: Integration and Unit Tests
-      env: test=scenario_basic__restart
-      script:
-        - travis_retry ./test/before_install_pull
-        - travis_retry ./test/script_scenario_basic
-        - travis_retry ./test/script_scenario_restart
+script:
+  - host-scripts/install_minishift.sh
 
-    - env: test=scenario_node_dies
-      script:
-        - travis_retry ./test/before_install_pull
-        - travis_retry ./test/script_scenario_node_dies
+# jobs:
+#   include:
+#     - stage: Docker build (re-use in stages)
+#       env: step=build_push
+#       script:
+#         - travis_retry ./test/before_install_build
 
-    - env: test=scenario_make
-      script:
-        - travis_retry ./test/before_install_pull
-        - travis_retry ./test/script_scenario_make
+#     - stage: Integration and Unit Tests
+#       env: test=scenario_basic__restart
+#       script:
+#         - travis_retry ./test/before_install_pull
+#         - travis_retry ./test/script_scenario_basic
+#         - travis_retry ./test/script_scenario_restart
 
-    - env: test=scenario_compose_N_N
-      script:
-        - travis_retry ./test/before_install_pull
-        - travis_retry ./test/script_scenario_compose_N_N
+#     - env: test=scenario_node_dies
+#       script:
+#         - travis_retry ./test/before_install_pull
+#         - travis_retry ./test/script_scenario_node_dies
 
-    - stage: Push Image (only with a tag) & Git push
-      script:
-        - travis_retry ./test/before_install_pull
-        - ./test/script_push
+#     - env: test=scenario_make
+#       script:
+#         - travis_retry ./test/before_install_pull
+#         - travis_retry ./test/script_scenario_make
+
+#     - env: test=scenario_compose_N_N
+#       script:
+#         - travis_retry ./test/before_install_pull
+#         - travis_retry ./test/script_scenario_compose_N_N
+
+#     - stage: Push Image (only with a tag) & Git push
+#       script:
+#         - travis_retry ./test/before_install_pull
+#         - ./test/script_push
